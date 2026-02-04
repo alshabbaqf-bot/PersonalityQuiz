@@ -285,7 +285,7 @@
                         <outlet property="singleButton3" destination="vlv-zg-1f9" id="08O-lM-6jY"/>
                         <outlet property="singleButton4" destination="XVJ-vn-2Eh" id="AdK-aY-jys"/>
                         <outlet property="singleStackView" destination="L2n-ge-6j5" id="DRg-TY-d56"/>
-                        <segue destination="sj0-XR-WwS" kind="show" identifier="Results" id="ePw-oL-rHh"/>
+                        <segue destination="sj0-XR-WwS" kind="show" identifier="Results" destinationCreationSelector="showResults:" id="ePw-oL-rHh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-kx-Rce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -333,6 +333,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="resultAnswerLabel" destination="S8y-Or-LwZ" id="IDF-aW-tPZ"/>
+                        <outlet property="resultDefinitionLabel" destination="T93-IK-Eqa" id="sa3-nU-AAv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qPO-Wf-LCf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="uiF-HP-Cuw" userLabel="Exit" sceneMemberID="exit"/>

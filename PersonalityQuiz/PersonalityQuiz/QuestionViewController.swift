@@ -119,7 +119,6 @@ class QuestionViewController: UIViewController {
         nextQuestion()
     }
     
-    
     @IBAction func rangedAnswerButtonPressed() {
         let currentAnswers = questions[questionIndex].answers
         let index = Int(round(rangedSlider.value * Float(currentAnswers.count - 1)))
@@ -137,6 +136,10 @@ class QuestionViewController: UIViewController {
         } else {
             performSegue(withIdentifier: "Results", sender: nil)
         }
+    }
+    
+    @IBSegueAction func showResults(_ coder: NSCoder) -> ResultsViewController? {
+        return ResultsViewController(coder: coder, responses: answersChosen)
     }
     
     func updateUI() {
@@ -172,6 +175,10 @@ class QuestionViewController: UIViewController {
     
     func updateMultipleStack(using answers: [Answer]) {
         multipleStackView.isHidden = false
+        multiSwitch1.isOn = false
+        multiSwitch2.isOn = false
+        multiSwitch3.isOn = false
+        multiSwitch4.isOn = false
         multiLable1.text = answers[0].text
         multiLable2.text = answers[1].text
         multiLable3.text = answers[2].text
@@ -180,6 +187,7 @@ class QuestionViewController: UIViewController {
     
     func updateRangedStack(using answers: [Answer]) {
         rangedStackView.isHidden = false
+        rangedSlider.setValue(0.5, animated: false)
         rangedLable1.text = answers.first?.text
         rangedLable2.text = answers.last?.text
     }
