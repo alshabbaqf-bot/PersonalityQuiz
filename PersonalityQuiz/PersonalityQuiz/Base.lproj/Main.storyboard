@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="aMb-IJ-Y2W">
-                                <rect key="frame" x="8" y="381" width="377" height="90.333333333333371"/>
+                                <rect key="frame" x="8" y="381" width="377" height="90.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which Animal Are You?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czc-mM-LDB">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="34.333333333333336"/>
@@ -31,6 +32,9 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Begin Personality Quiz">
                                             <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="cOc-rg-SgB" kind="show" id="8j7-wE-nOz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -77,9 +81,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ohc-oX-g3s" secondAttribute="trailing" constant="20" id="z8U-pX-Tj2"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <segue destination="cOc-rg-SgB" kind="show" id="zxz-1v-SIK"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,11 +122,11 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LhX-k9-Iqw">
                                 <rect key="frame" x="20" y="270.33333333333331" width="353" height="242.33333333333331"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="W3g-ED-27d">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="W3g-ED-27d">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUL-Uh-rcd">
-                                                <rect key="frame" x="0.0" y="0.0" width="271" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="296" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -183,9 +184,6 @@
                                         <buttonConfiguration key="configuration" style="plain" title="Submit Answer"/>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="8ts-YO-bhw" firstAttribute="centerY" secondItem="LhX-k9-Iqw" secondAttribute="centerY" id="O3Y-FN-oEO"/>
-                                </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="05l-Sx-cIN">
                                 <rect key="frame" x="20" y="327.33333333333331" width="353" height="128.66666666666669"/>
@@ -246,9 +244,18 @@
                             <constraint firstItem="sJI-Ar-t88" firstAttribute="bottom" secondItem="wfe-gZ-qQZ" secondAttribute="bottom" constant="30" id="xRk-A4-6SJ"/>
                             <constraint firstItem="sJI-Ar-t88" firstAttribute="trailing" secondItem="VSB-ZD-idx" secondAttribute="trailing" constant="20" id="zXR-Et-Rsx"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="L2n-ge-6j5"/>
+                                <exclude reference="05l-Sx-cIN"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="pVx-T6-Mfl"/>
                     <connections>
+                        <outlet property="multipleStackView" destination="LhX-k9-Iqw" id="Kgb-f5-7PQ"/>
+                        <outlet property="rangedStackView" destination="05l-Sx-cIN" id="6kJ-dK-iM2"/>
+                        <outlet property="singleStackView" destination="L2n-ge-6j5" id="DRg-TY-d56"/>
                         <segue destination="sj0-XR-WwS" kind="show" identifier="Results" id="ePw-oL-rHh"/>
                     </connections>
                 </viewController>
