@@ -9,6 +9,8 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     
+    // MARK: - Model / Data
+    
     var questions: [Question] = [
         Question(
             text: "Which food do you like the most?",
@@ -44,6 +46,13 @@ class QuestionViewController: UIViewController {
         )
     ] // end of questions array
     
+    var questionIndex = 0
+    var answersChosen: [Answer] = []
+    private var displayedAnswers: [Answer] = []
+    private var multipleSwitches: [(control: UISwitch, answer: Answer)] = []
+    
+    // MARK: - Outlets
+    
     @IBOutlet weak var questionLable: UILabel!
 
     @IBOutlet weak var answersStackView: UIStackView!
@@ -54,57 +63,16 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var rangedSlider: UISlider!
 
     @IBOutlet weak var questionProgressView: UIProgressView!
-        
-    var questionIndex = 0
-    var answersChosen: [Answer] = []
-    private var displayedAnswers: [Answer] = []
-    private var multipleSwitches: [(control: UISwitch, answer: Answer)] = []
     
-    private func buildSingleUI(answers: [Answer]) {
-        for (index, answer) in answers.enumerated() {
-            let button = UIButton(type: .system)
-            button.setTitle(answer.text, for: .normal)
-            button.tag = index
-            button.titleLabel?.numberOfLines = 0
-            button.contentHorizontalAlignment = .center
-            button.addTarget(self, action: #selector(singleTapped(_:)), for: .touchUpInside)
-
-            answersStackView.addArrangedSubview(button)
-        }
-    }
-    
-    private func buildMultipleUI(answers: [Answer]) {
-        for answer in answers {
-            let row = UIStackView()
-            row.axis = .horizontal
-            row.alignment = .center
-            row.spacing = 12
-
-            let label = UILabel()
-            label.text = answer.text
-            label.numberOfLines = 0
-
-            let toggle = UISwitch()
-
-            row.addArrangedSubview(label)
-            row.addArrangedSubview(toggle)
-
-            answersStackView.addArrangedSubview(row)
-
-            multipleSwitches.append((control: toggle, answer: answer))
-        }
-
-        let submit = UIButton(type: .system)
-        submit.setTitle("Submit Answer", for: .normal)
-        submit.addTarget(self, action: #selector(multipleSubmitTapped), for: .touchUpInside)
-        answersStackView.addArrangedSubview(submit)
-    }
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         questions.shuffle() // randomize question order
         updateUI()
     }
+    
+    // MARK: - UI Update
     
     func updateUI() {
         // Hide both areas first
@@ -151,16 +119,6 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    func nextQuestion() {
-        questionIndex += 1
-        
-        if questionIndex < questions.count {
-            updateUI()
-        } else {
-            performSegue(withIdentifier: "Results", sender: nil)
-        }
-    }
-    
     func updateRangedStack(using answers: [Answer]) {
 //        rangedSlider.minimumValue = 0
 //        rangedSlider.maximumValue = Float(max(answers.count - 1, 0))
@@ -171,9 +129,65 @@ class QuestionViewController: UIViewController {
         rangedLable2.text = answers.last?.text
     }
     
+    // MARK: - Build Dynamic UI
+    
+    private func buildSingleUI(answers: [Answer]) {
+        for (index, answer) in answers.enumerated() {
+            let button = UIButton(type: .system)
+            button.setTitle(answer.text, for: .normal)
+            button.tag = index
+            button.titleLabel?.numberOfLines = 0
+            button.contentHorizontalAlignment = .center
+            button.addTarget(self, action: #selector(singleTapped(_:)), for: .touchUpInside)
+
+            answersStackView.addArrangedSubview(button)
+        }
+    }
+    
+    private func buildMultipleUI(answers: [Answer]) {
+        for answer in answers {
+            let row = UIStackView()
+            row.axis = .horizontal
+            row.alignment = .center
+            row.spacing = 12
+
+            let label = UILabel()
+            label.text = answer.text
+            label.numberOfLines = 0
+
+            let toggle = UISwitch()
+
+            row.addArrangedSubview(label)
+            row.addArrangedSubview(toggle)
+
+            answersStackView.addArrangedSubview(row)
+
+            multipleSwitches.append((control: toggle, answer: answer))
+        }
+
+        let submit = UIButton(type: .system)
+        submit.setTitle("Submit Answer", for: .normal)
+        submit.addTarget(self, action: #selector(multipleSubmitTapped), for: .touchUpInside)
+        answersStackView.addArrangedSubview(submit)
+    }
+    
+    // MARK: - Navigation
+    
+    func nextQuestion() {
+        questionIndex += 1
+        
+        if questionIndex < questions.count {
+            updateUI()
+        } else {
+            performSegue(withIdentifier: "Results", sender: nil)
+        }
+    }
+    
     @IBSegueAction func showResults(_ coder: NSCoder) -> ResultsViewController? {
         return ResultsViewController(coder: coder, responses: answersChosen)
     }
+    
+    // MARK: - Actions
     
     @objc private func singleTapped(_ sender: UIButton) {
         let answer = displayedAnswers[sender.tag]
@@ -195,6 +209,4 @@ class QuestionViewController: UIViewController {
         answersChosen.append(displayedAnswers[index])
         nextQuestion()
     }
-
-
 } // class end
