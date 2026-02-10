@@ -154,6 +154,11 @@ class QuestionViewController: UIViewController {
     deinit {
         stopTimer()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        stopTimer()
+    }
 
     // MARK: - Build Dynamic UI
     
