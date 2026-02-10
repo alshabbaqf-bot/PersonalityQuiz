@@ -18,10 +18,14 @@ class QuestionViewController: UIViewController {
     private var displayedAnswers: [Answer] = []
     private var multipleSwitches: [(control: UISwitch, answer: Answer)] = []
     
+    private var timer: Timer?
+    private let timePerQuestion = 10
+    private var secondsLeft = 0
+    
     // MARK: - Outlets
     
     @IBOutlet weak var questionLable: UILabel!
-
+    @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var answersStackView: UIStackView!
 
     @IBOutlet weak var rangedStackView: UIStackView!
@@ -79,6 +83,8 @@ class QuestionViewController: UIViewController {
             rangedStackView.isHidden = false
             updateRangedStack(using: displayedAnswers)
         }
+        
+        startTimer()
     }// end of updateUI
     
     private func clearAnswersStack() {
@@ -89,15 +95,66 @@ class QuestionViewController: UIViewController {
     }
     
     func updateRangedStack(using answers: [Answer]) {
-//        rangedSlider.minimumValue = 0
-//        rangedSlider.maximumValue = Float(max(answers.count - 1, 0))
-//        rangedSlider.setValue(rangedSlider.maximumValue / 2, animated: false)
         rangedSlider.setValue(0.5, animated: false)
 
         rangedLable1.text = answers.first?.text
         rangedLable2.text = answers.last?.text
     }
     
+    private func updateTimerLabel() {
+        timerLabel.text = "Time: \(secondsLeft)s"
+    }
+    
+    // MARK: - Timer
+    private func startTimer() {
+        stopTimer()
+        secondsLeft = timePerQuestion
+        updateTimerLabel()
+
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self else { return }
+            self.secondsLeft -= 1
+            self.updateTimerLabel()
+
+            if self.secondsLeft <= 0 {
+                self.stopTimer()
+                self.handleTimeout()
+            }
+        }
+    }
+
+    private func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+
+    private func handleTimeout() {
+        let currentQuestion = questions[questionIndex]
+
+        switch currentQuestion.type {
+        case .single:
+            // No selection recorded
+            break
+
+        case .multiple:
+            for item in multipleSwitches {
+                if item.control.isOn {
+                    answersChosen.append(item.answer)
+                }
+            }
+
+        case .ranged:
+            let index = Int(round(rangedSlider.value * Float(displayedAnswers.count - 1)))
+            answersChosen.append(displayedAnswers[index])
+        }
+
+        nextQuestion()
+    }
+    
+    deinit {
+        stopTimer()
+    }
+
     // MARK: - Build Dynamic UI
     
     private func buildSingleUI(answers: [Answer]) {
@@ -159,12 +216,14 @@ class QuestionViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func singleTapped(_ sender: UIButton) {
+        stopTimer()
         let answer = displayedAnswers[sender.tag]
         answersChosen.append(answer)
         nextQuestion()
     }
 
     @objc private func multipleSubmitTapped() {
+        stopTimer()
         for item in multipleSwitches {
             if item.control.isOn {
                 answersChosen.append(item.answer)
@@ -174,6 +233,7 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func rangedSubmitPressed(_ sender: UIButton) {
+        stopTimer()
         let index = Int(round(rangedSlider.value * Float(displayedAnswers.count - 1)))
         answersChosen.append(displayedAnswers[index])
         nextQuestion()

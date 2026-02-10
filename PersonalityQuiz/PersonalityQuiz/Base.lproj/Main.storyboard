@@ -196,23 +196,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: 10" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pS-zk-1dE">
+                                <rect key="frame" x="22" y="152.33333333333334" width="347" height="20.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="wfe-gZ-qQZ">
                                 <rect key="frame" x="25" y="759" width="343" height="4"/>
                             </progressView>
                             <stackView opaque="NO" contentMode="center" ambiguous="YES" axis="vertical" distribution="equalCentering" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="X3J-Nb-jjk">
-                                <rect key="frame" x="20" y="130.33333333333331" width="353" height="602.66666666666674"/>
+                                <rect key="frame" x="20" y="223" width="353" height="468"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sJI-Ar-t88"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="05l-Sx-cIN" firstAttribute="leading" secondItem="sJI-Ar-t88" secondAttribute="leading" constant="20" id="53L-gJ-1fw"/>
+                            <constraint firstItem="4pS-zk-1dE" firstAttribute="leading" secondItem="sJI-Ar-t88" secondAttribute="leading" constant="22" id="BZE-lh-dPY"/>
                             <constraint firstItem="sJI-Ar-t88" firstAttribute="trailing" secondItem="05l-Sx-cIN" secondAttribute="trailing" constant="20" id="Dw0-hR-GzC"/>
                             <constraint firstItem="VSB-ZD-idx" firstAttribute="leading" secondItem="sJI-Ar-t88" secondAttribute="leading" constant="20" id="Eih-3e-2Lc"/>
                             <constraint firstItem="wfe-gZ-qQZ" firstAttribute="leading" secondItem="sJI-Ar-t88" secondAttribute="leading" constant="25" id="Ogd-fl-dLQ"/>
                             <constraint firstItem="VSB-ZD-idx" firstAttribute="top" secondItem="sJI-Ar-t88" secondAttribute="top" constant="20" id="TKu-si-Y4n"/>
                             <constraint firstItem="sJI-Ar-t88" firstAttribute="trailing" secondItem="X3J-Nb-jjk" secondAttribute="trailing" constant="20" id="c9q-fW-b1W"/>
+                            <constraint firstItem="4pS-zk-1dE" firstAttribute="top" secondItem="VSB-ZD-idx" secondAttribute="bottom" constant="24" id="il7-cK-HpZ"/>
                             <constraint firstItem="X3J-Nb-jjk" firstAttribute="centerY" secondItem="n2U-co-JwU" secondAttribute="centerY" id="mSx-zm-ZfS"/>
+                            <constraint firstItem="sJI-Ar-t88" firstAttribute="trailing" secondItem="4pS-zk-1dE" secondAttribute="trailing" constant="24" id="miI-Wc-J1y"/>
                             <constraint firstItem="X3J-Nb-jjk" firstAttribute="leading" secondItem="sJI-Ar-t88" secondAttribute="leading" constant="20" id="qCd-Wd-WFV"/>
                             <constraint firstItem="sJI-Ar-t88" firstAttribute="trailing" secondItem="wfe-gZ-qQZ" secondAttribute="trailing" constant="25" id="rWb-g6-yBo"/>
                             <constraint firstItem="05l-Sx-cIN" firstAttribute="centerY" secondItem="n2U-co-JwU" secondAttribute="centerY" id="v2y-fG-Len"/>
@@ -229,12 +238,13 @@
                         <outlet property="rangedLable2" destination="5NF-jx-hBv" id="NNw-OK-6yR"/>
                         <outlet property="rangedSlider" destination="jhq-xb-xdk" id="HMY-Dy-URC"/>
                         <outlet property="rangedStackView" destination="05l-Sx-cIN" id="6kJ-dK-iM2"/>
+                        <outlet property="timerLabel" destination="4pS-zk-1dE" id="zCF-p8-Jg2"/>
                         <segue destination="sj0-XR-WwS" kind="show" identifier="Results" destinationCreationSelector="showResults:" id="ePw-oL-rHh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxd-kx-Rce" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="-2"/>
+            <point key="canvasLocation" x="1472.5190839694656" y="-2.1126760563380285"/>
         </scene>
         <!--Results-->
         <scene sceneID="U29-wI-cbs">
