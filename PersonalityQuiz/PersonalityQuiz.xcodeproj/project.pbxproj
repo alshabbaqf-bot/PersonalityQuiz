@@ -6,8 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		059AEC272F3B4424003395EE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 059AEC262F3B4424003395EE /* README.md */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		054F6D762F30115700A490F6 /* PersonalityQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonalityQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		059AEC262F3B4424003395EE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -45,6 +50,7 @@
 		054F6D6D2F30115700A490F6 = {
 			isa = PBXGroup;
 			children = (
+				059AEC262F3B4424003395EE /* README.md */,
 				054F6D782F30115700A490F6 /* PersonalityQuiz */,
 				054F6D772F30115700A490F6 /* Products */,
 			);
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059AEC272F3B4424003395EE /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
