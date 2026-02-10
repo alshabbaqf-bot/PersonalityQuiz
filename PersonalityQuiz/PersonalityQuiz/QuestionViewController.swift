@@ -11,41 +11,8 @@ class QuestionViewController: UIViewController {
     
     // MARK: - Model / Data
     
-    var questions: [Question] = [
-        Question(
-            text: "Which food do you like the most?",
-            type: .single,
-            answers: [
-                Answer(text: "Steak", type: .lion),
-                Answer(text: "Fish", type: .cat),
-                Answer(text: "Carrots", type: .rabbit),
-                Answer(text: "Corn", type: .turtle)
-            ]
-        ),
-        
-        Question(
-            text: "Which activities do you enjoy?",
-            type: .multiple,
-            answers: [
-                Answer(text: "Swimming", type: .turtle),
-                Answer(text: "Sleeping", type: .cat),
-                Answer(text: "Cuddling", type: .rabbit),
-                Answer(text: "Eating", type: .lion),
-            ]
-        ),
-                
-        Question(
-            text: "How much do you enjoy car rides?" ,
-            type: .ranged,
-            answers: [
-            Answer (text: "I dislike them", type: .cat) ,
-            Answer (text: "I get a litle nervous", type: .rabbit),
-            Answer(text: "I barely notice them", type: .turtle) ,
-            Answer (text: "I love them", type: .lion)
-            ]
-        )
-    ] // end of questions array
-    
+    var quiz: Quiz!
+    private var questions: [Question] = []
     var questionIndex = 0
     var answersChosen: [Answer] = []
     private var displayedAnswers: [Answer] = []
@@ -68,6 +35,8 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        questions = quiz.questions
         questions.shuffle() // randomize question order
         updateUI()
     }
