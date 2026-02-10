@@ -215,7 +215,7 @@ class QuestionViewController: UIViewController {
     }
     
     @IBSegueAction func showResults(_ coder: NSCoder) -> ResultsViewController? {
-        return ResultsViewController(coder: coder, responses: answersChosen)
+        return ResultsViewController(coder: coder, quiz: quiz, responses: answersChosen)
     }
     
     // MARK: - Actions
