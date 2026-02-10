@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Result types per quiz
 
 enum AnimalType: String, CaseIterable {
-    case lion = "🦁", cat = "🐱", rabbit = "🐰", turtle = "🐢"
+    case lion = "a 🦁", cat = "a 🐱", rabbit = "a 🐰", turtle = "a 🐢"
 
     var definition: String {
         switch self {
@@ -36,10 +36,10 @@ enum ColorType: String, CaseIterable {
 }
 
 enum CareerType: String, CaseIterable {
-    case leader = "👩‍💼"
-    case engineer = "👷"
-    case designer = "🎨"
-    case planner = "📝"
+    case leader = "a Leader👩‍💼"
+    case engineer = "an Engineer👷"
+    case designer = "a Designer🎨"
+    case planner = "a Planner📝"
 
     var definition: String {
         switch self {
@@ -121,7 +121,6 @@ enum QuizBank {
                     Answer(text: "Sleeping",  result: .animal(.cat)),
                     Answer(text: "Cuddling",  result: .animal(.rabbit)),
                     Answer(text: "Eating",    result: .animal(.lion)),
-                    Answer(text: "Running",   result: .animal(.rabbit))
                 ]),
                 Question(text: "How much do you enjoy car rides?", type: .ranged, answers: [
                     Answer(text: "I dislike them",        result: .animal(.cat)),
