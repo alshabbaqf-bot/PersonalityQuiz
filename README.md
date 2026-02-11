@@ -30,7 +30,7 @@ The app is compatible with both iPads and iPhones. It has been tested on multipl
 
 - **iPad Air 11-inch (M3)**: Main testing device for iPad compatibility.
 - **iPhone 16 Pro**: Main testing device for iPhone compatibility.
-- **Xcode 16.4**: Version using for develop.
+- **Xcode 16.4**: Development environment.
 
 Both devices are running on iOS 18.0.
 
