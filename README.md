@@ -1,4 +1,4 @@
-<h1 style="text-align:center">Personality Quiz App</h1>
+<h1>Personality Quiz App</h1>
 
 <p>The Personality Quiz App is an iOS application developed using Swift and UIKit.
 The app allows users to select from multiple personality quizzes, answer different types of questions, receive a personalized result, and view previously completed quizzes.</p>
