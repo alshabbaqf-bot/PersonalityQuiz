@@ -63,9 +63,6 @@ class ResultsViewController: UIViewController {
             completedAt: Date()
         )
         HistoryStore.add(item)
-
-        // TEST (temporary): print history in console
-        print("History saved. Total items:", HistoryStore.load().count)
     }
 
 }// class end

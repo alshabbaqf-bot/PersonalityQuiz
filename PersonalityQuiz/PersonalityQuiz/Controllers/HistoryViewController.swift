@@ -5,7 +5,6 @@
 //  Created by Alshabbaq on 10/02/2026.
 //
 
-import Foundation
 import UIKit
 
 class HistoryViewController: UIViewController {
@@ -16,6 +15,11 @@ class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .close,
+                target: self,
+                action: #selector(close)
+            )
 
         history = HistoryStore.load()
 
@@ -27,6 +31,10 @@ class HistoryViewController: UIViewController {
         super.viewWillAppear(animated)
         history = HistoryStore.load()
         tableView.reloadData()
+    }
+    
+    @objc private func close() {
+        dismiss(animated: true)
     }
 }
 
@@ -41,13 +49,13 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
         let item = history[indexPath.row]
 
-        cell.textLabel?.text = "\(item.resultEmoji)  \(item.quizTitle)"
+        cell.textLabel?.text = "\(item.quizTitle)"
 
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         formatter.timeStyle = .short
 
-        cell.detailTextLabel?.text = formatter.string(from: item.completedAt)
+        cell.detailTextLabel?.text = "You are \(item.resultEmoji)"
 
         return cell
     }

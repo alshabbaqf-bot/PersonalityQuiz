@@ -5,13 +5,10 @@
 //  Created by Alshabbaq on 09/02/2026.
 //
 
-import Foundation
 import UIKit
 
 class QuizCell: UITableViewCell {
     
-    
-
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var iconLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!

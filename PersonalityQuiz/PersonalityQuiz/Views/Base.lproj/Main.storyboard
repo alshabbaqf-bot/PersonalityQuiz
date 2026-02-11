@@ -165,23 +165,23 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryCell" textLabel="baE-A7-pBs" detailTextLabel="AGN-Yz-drd" style="IBUITableViewCellStyleSubtitle" id="5KG-L9-est">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="53"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5KG-L9-est" id="Oue-y8-eBP">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="baE-A7-pBs">
-                                                    <rect key="frame" x="20" y="9" width="25" height="14.333333333333334"/>
+                                                    <rect key="frame" x="20.000000000000004" y="7.3333333333333339" width="33.333333333333336" height="19.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AGN-Yz-drd">
-                                                    <rect key="frame" x="19.999999999999996" y="25.333333333333336" width="52.666666666666664" height="18"/>
+                                                    <rect key="frame" x="19.999999999999996" y="29.333333333333336" width="55.666666666666664" height="19.333333333333332"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -200,9 +200,7 @@
                             <constraint firstItem="pxq-Ie-toi" firstAttribute="trailing" secondItem="JtC-ed-m4o" secondAttribute="trailing" id="eWq-Y3-Gtt"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Completed Quizzes" id="lmH-Qb-haD">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="z2K-hj-OCF"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Completed Quizzes" id="lmH-Qb-haD"/>
                     <connections>
                         <outlet property="tableView" destination="JtC-ed-m4o" id="Tca-P5-I8K"/>
                     </connections>
@@ -399,7 +397,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.left" catalog="system" width="97" height="128"/>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
