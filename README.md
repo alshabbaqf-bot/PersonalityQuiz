@@ -13,7 +13,7 @@ The app allows users to select from multiple personality quizzes, answer differe
 &nbsp;&nbsp;&nbsp;&nbsp;[References](#references)<br/>
 
 ## Features
-   -  Multiple quiz selection from intro screen
+   -	Multiple quiz selection from intro screen
    -	Dynamic question rendering using UIStackView
    -	Single-choice, multiple-choice, and ranged (slider) questions
    -	Randomized question order
