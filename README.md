@@ -43,12 +43,12 @@ Both devices are running on iOS 18.0.
 
 2. **Open the Project**:
    - Open the project in Xcode 16.4
-
 3. **Select Simulator**:
-   - Select an iPhone Simulator (e.g., iPhone 16 Pro).
+   - Select an iPhone or iPad Simulator
+   - (e.g., iPhone 16 Pro, iPad Air 11-inch (M3)).
 
 5. **Run the App**:
-   - Click the run button in Xcode.
+   - Click the run button in Xcode or (⌘R).
    - Wait for the simulator to launch and deploy the app.
 
 ## Architecture
