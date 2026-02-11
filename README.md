@@ -11,16 +11,16 @@ The app allows users to select from multiple personality quizzes, answer differe
 &nbsp;&nbsp;&nbsp;&nbsp;[Architecture](#architecture)<br/>
 
 ## Features
-- Multiple quiz selection from intro screen
--	Dynamic question rendering using UIStackView
--	Single-choice, multiple-choice, and ranged (slider) questions
--	Randomized question order
--	Randomized answer order (single & multiple types)
--	Timer per question (10 seconds)
--	Automatic timeout handling
--	Results calculation based on most frequent answer
--	Local storage using UserDefaults
--	Completed quizzes history screen
+   -  Multiple quiz selection from intro screen
+   -	Dynamic question rendering using UIStackView
+   -	Single-choice, multiple-choice, and ranged (slider) questions
+   -	Randomized question order
+   -	Randomized answer order (single & multiple types)
+   -	Timer per question (10 seconds)
+   -	Automatic timeout handling
+   -	Results calculation based on most frequent answer
+   -	Local storage using UserDefaults
+   -	Completed quizzes history screen
 
 ## Compatibility
 
@@ -28,6 +28,7 @@ The app is compatible with both iPads and iPhones. It has been tested on multipl
 
 - **iPad Air 11-inch (M3)**: Main testing device for iPad compatibility.
 - **iPhone 16 Pro**: Main testing device for iPhone compatibility.
+- **Xcode 16.4**: Version using for develop.
 
 Both devices are running on iOS 18.0.
 
@@ -35,23 +36,41 @@ Both devices are running on iOS 18.0.
 
 1. **Clone the Repository**:
    - Open Xcode and select "Clone Git Repository". <br>
-   - Enter the repository URL: [`https://github.com/memezsxz/YellaEvent.git`](https://github.com/memezsxz/YellaEvent.git) and click on "Clone".
-     ![Alt text](./images/setup3.png)
-   - Select the "main" branch and choose a local directory to save the project.
-     ![Alt text](./images/setup4.png)
+   - Enter the repository URL: [`https://github.com/memezsxz/YellaEvent.git`](https://github.com/alshabbaqf-bot/PersonalityQuiz.git) and click on "Clone".
+   - Choose a local directory to save the project.
 
 2. **Open the Project**:
-   - Xcode will automatically open the cloned project.
+   - Open the project in Xcode 16.4
 
-3. **Run the App**:
+3. **Select Simulator**:
+   - Select an iPhone Simulator (e.g., iPhone 16 Pro).
+
+5. **Run the App**:
    - Click the run button in Xcode.
    - Wait for the simulator to launch and deploy the app.
 
 ## Architecture
 
-The app is built using the **Model-View-Controller (MVC)** architecture pattern, which ensures a clear separation of concerns, making the codebase easier to maintain and extend.
+The app is built using the **Model-View-Controller (MVC)** architecture pattern. This structure ensures a clear separation of concerns, improves maintainability, and makes the project easier to extend.
 
-- **Model**: Includes all the data logic for the application.
-- **View**: Displays information to the user and contains reusable UI elements and layouts for the app's interface.
-- **Controller**: Bridges the Model and View, handling user inputs and updating the app dynamically.
+- **Model**: Contains the data structures and business logic of the app, including quiz definitions, questions, answers, and local persistence.
+- **View**: Responsible for presenting the user interface. This includes storyboard layouts, table view cells, and dynamically generated UI elements using UIStackView.
+- **Controller**: Manages user interaction, handles navigation between screens, connects models to views, and controls application flow.
+
+
+## Figma Prototype
+
+**Figma Link:**
+[`https://www.figma.com/design/yzZ3s2oOWU6oHcGa8h3jTN/Personality-Quiz?m=auto&t=ZjhA1Fj9dq1WU120-1`](https://www.figma.com/design/yzZ3s2oOWU6oHcGa8h3jTN/Personality-Quiz?m=auto&t=ZjhA1Fj9dq1WU120-1)
+
+The prototype demonstrates the full user flow:
+   - Quiz selection
+   - Question flow
+   - Results screen
+   - Completed quizzes screen
+
+## References
+   -  Apple Developer Documentation
+   -  Swift Documentation
+   -  SF Symbols
 
