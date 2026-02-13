@@ -13,16 +13,16 @@ The app allows users to select from multiple personality quizzes, answer differe
 &nbsp;&nbsp;&nbsp;&nbsp;[References](#references)<br/>
 
 ## Features
-   -	Multiple quiz selection from intro screen
-   -	Dynamic question rendering using UIStackView
-   -	Single-choice, multiple-choice, and ranged (slider) questions
-   -	Randomized question order
-   -	Randomized answer order (single & multiple types)
-   -	Timer per question (10 seconds)
-   -	Automatic timeout handling
-   -	Results calculation based on most frequent answer
-   -	Local storage using UserDefaults
-   -	Completed quizzes history screen
+   -	Multiple quiz selection from intro screen.
+   -	Dynamic question rendering using UIStackView.
+   -	Single-choice, multiple-choice, and ranged (slider) questions.
+   -	Randomized question order.
+   -	Randomized answer order (single & multiple types).
+   -	Timer per question (10 seconds).
+   -	Automatic timeout handling.
+   -	Results calculation based on most frequent answer.
+   -	Local storage using UserDefaults.
+   -	Completed quizzes history screen.
 
 ## Compatibility
 
@@ -30,9 +30,8 @@ The app is compatible with both iPads and iPhones. It has been tested on multipl
 
 - **iPad Air 11-inch (M3)**: Main testing device for iPad compatibility.
 - **iPhone 16 Pro**: Main testing device for iPhone compatibility.
-- **Xcode 16.4**: Development environment.
 
-Both devices are running on iOS 18.0.
+Both devices are running on iOS 18.
 
 ## Setup Instructions
 
@@ -42,7 +41,7 @@ Both devices are running on iOS 18.0.
    - Choose a local directory to save the project.
 
 2. **Open the Project**:
-   - Open the project in Xcode 16.4
+   - Open the cloned project using Xcode
 3. **Select Simulator**:
    - Select an iPhone or iPad Simulator
    - (e.g., iPhone 16 Pro, iPad Air 11-inch (M3)).
