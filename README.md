@@ -31,7 +31,7 @@ The app is compatible with both iPads and iPhones. It has been tested on multipl
 - **iPad Air 11-inch (M3)**: Main testing device for iPad compatibility.
 - **iPhone 16 Pro**: Main testing device for iPhone compatibility.
 
-Both devices are running on iOS 18.
+Both devices are running on **iOS 18**.
 
 ## Setup Instructions
 
