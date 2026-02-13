@@ -41,10 +41,9 @@ Both devices are running on **iOS 18**.
    - Choose a local directory to save the project.
 
 2. **Open the Project**:
-   - Open the cloned project using Xcode
+   - Open the cloned project using Xcode.
 3. **Select Simulator**:
-   - Select an iPhone or iPad Simulator
-   - (e.g., iPhone 16 Pro, iPad Air 11-inch (M3)).
+   - Select an iPhone or iPad Simulator (e.g., iPhone 16 Pro, iPad Air 11-inch (M3)).
 
 5. **Run the App**:
    - Click the run button in Xcode or (⌘R).
