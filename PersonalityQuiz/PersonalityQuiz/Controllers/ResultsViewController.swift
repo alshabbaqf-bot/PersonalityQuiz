@@ -32,29 +32,19 @@ class ResultsViewController: UIViewController {
     }
     
     private func calculatePersonalityResultAndSave() {
-        // Count QuizResult frequency
-        var counts: [String: Int] = [:]
-        var map: [String: QuizResult] = [:]
+        
+        // Count QuizResult
+        guard let finalResult = QuizResultCalculator.calculate(from: responses) else {
+                resultAnswerLabel.text = "No result"
+                resultDefinitionLabel.text = ""
+                return
+            }
 
-        for answer in responses {
-            let r = answer.result
-            let key = String(describing: r)
-            counts[key, default: 0] += 1
-            if map[key] == nil { map[key] = r }
-        }
-
-        guard let bestKey = counts.max(by: { $0.value < $1.value })?.key,
-              let finalResult = map[bestKey] else {
-            resultAnswerLabel.text = "No result"
-            resultDefinitionLabel.text = ""
-            return
-        }
-
-        // UI
+        // UI update
         resultAnswerLabel.text = "You are \(finalResult.emoji)!"
         resultDefinitionLabel.text = finalResult.definition
 
-        // SAVE to history
+        // Save to history
         let item = CompletedQuiz(
             quizId: quiz.id,
             quizTitle: quiz.title,
