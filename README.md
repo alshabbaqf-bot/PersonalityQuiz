@@ -107,7 +107,6 @@ The prototype includes:
 
 - Quiz selection screen
 - Question flow (single, multiple, ranged)
-- Timer interaction
 - Results screen
 - Completed quizzes history screen
 
@@ -122,10 +121,12 @@ https://www.figma.com/design/yzZ3s2oOWU6oHcGa8h3jTN/Personality-Quiz?m=auto&t=oe
 
 Quiz history is stored locally using:
 
+- `Codable`
+- `JSONEncoder`
+- `JSONDecoder`
 - `UserDefaults`
-- Codable models (if applicable)
 
-Data is saved automatically after each completed quiz and loaded when the app launches.
+Data is saved automatically after each completed quiz and displayed in the history screen.
 
 ---
 
