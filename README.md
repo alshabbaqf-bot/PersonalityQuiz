@@ -1,7 +1,6 @@
 <h1>Personality Quiz App</h1>
 
-<p>The Personality Quiz App is an iOS application developed using Swift and UIKit.
-The app allows users to select from multiple personality quizzes, answer different types of questions, receive a personalized result, and view previously completed quizzes.</p>
+<p>The Personality Quiz App is an iOS application developed using Swift and UIKit (Storyboard-based). The app allows users to select from multiple personality quizzes, answer different types of questions, receive personalized results, and view previously completed quiz history.</p>
 
 ## Table of Contents
 
@@ -9,70 +8,140 @@ The app allows users to select from multiple personality quizzes, answer differe
 &nbsp;&nbsp;&nbsp;&nbsp;[Compatibility](#compatibility)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Setup Instructions](#setup-instructions)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[Architecture](#architecture)<br/>
-&nbsp;&nbsp;&nbsp;&nbsp;[Figma Prototype](#figma-prototype)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Prototype](#prototype)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Data Persistence](#data-persistence)<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;[Timer Functionality](#timer-functionality)<br/>
 &nbsp;&nbsp;&nbsp;&nbsp;[References](#references)<br/>
 
+---
+
 ## Features
-   -	Multiple quiz selection from intro screen
-   -	Dynamic question rendering using UIStackView
-   -	Single-choice, multiple-choice, and ranged (slider) questions
-   -	Randomized question order
-   -	Randomized answer order (single & multiple types)
-   -	Timer per question (10 seconds)
-   -	Automatic timeout handling
-   -	Results calculation based on most frequent answer
-   -	Local storage using UserDefaults
-   -	Completed quizzes history screen
+
+- Multiple quiz selection from intro screen.
+- Dynamic question rendering using `UIStackView`.
+- Support for:
+  - Single-choice questions
+  - Multiple-choice questions
+  - Ranged (slider) questions
+- Randomized question order.
+- Randomized answer order (single & multiple types).
+- Timer per question (10 seconds).
+- Automatic timeout handling.
+- Results calculation based on the most frequent answer.
+- Completed quizzes history screen.
+- Local data persistence using `UserDefaults`.
+  
+---
 
 ## Compatibility
 
-The app is compatible with both iPads and iPhones. It has been tested on multiple screen sizes to ensure seamless integration with various iOS devices.
+The app is compatible with both iPads and iPhones and has been tested across multiple screen sizes.
 
 - **iPad Air 11-inch (M3)**: Main testing device for iPad compatibility.
 - **iPhone 16 Pro**: Main testing device for iPhone compatibility.
-- **Xcode 16.4**: Development environment.
 
-Both devices are running on iOS 18.0.
+Both devices are running on **iOS 18**.
+
+---
 
 ## Setup Instructions
 
-1. **Clone the Repository**:
-   - Open Xcode and select "Clone Git Repository". <br>
-   - Enter the repository URL: [`https://github.com/memezsxz/YellaEvent.git`](https://github.com/alshabbaqf-bot/PersonalityQuiz.git) and click on "Clone".
-   - Choose a local directory to save the project.
+1. **Clone the Repository**
+   - Open Xcode.
+   - Select *Clone Git Repository*.
+   - Enter the repository URL:
+     ```
+     https://github.com/alshabbaqf-bot/PersonalityQuiz.git
+     ```
+   - Choose a local directory and clone.
 
-2. **Open the Project**:
-   - Open the project in Xcode 16.4
-3. **Select Simulator**:
-   - Select an iPhone or iPad Simulator
-   - (e.g., iPhone 16 Pro, iPad Air 11-inch (M3)).
+2. **Open the Project**
+   - Open the `.xcodeproj` file in Xcode.
 
-5. **Run the App**:
-   - Click the run button in Xcode or (⌘R).
-   - Wait for the simulator to launch and deploy the app.
+3. **Select Simulator**
+   - Choose an iPhone or iPad simulator (e.g., iPhone 16 Pro or iPad Air 11-inch).
+
+4. **Run the App**
+   - Press ⌘R or click the Run button.
+   - The app will launch and display the quiz selection screen.
+
+---
 
 ## Architecture
 
-The app is built using the **Model-View-Controller (MVC)** architecture pattern. This structure ensures a clear separation of concerns, improves maintainability, and makes the project easier to extend.
+The app follows the **Model-View-Controller (MVC)** architectural pattern.
 
-- **Model**: Contains the data structures and business logic of the app, including quiz definitions, questions, answers, and local persistence.
-- **View**: Responsible for presenting the user interface. This includes storyboard layouts, table view cells, and dynamically generated UI elements using UIStackView.
-- **Controller**: Manages user interaction, handles navigation between screens, connects models to views, and controls application flow.
+### Model
+- `Quiz`
+- `Question`
+- `Answer`
+- Business logic for result calculation
+- Local storage management using `UserDefaults`
 
+### View
+- Storyboard-based UI
+- Dynamic answer generation using `UIStackView`
+- Slider for ranged questions
+- TableView for completed quiz history
 
-## Figma Prototype
+### Controller
+- `QuizIntroViewController`
+- `QuestionViewController`
+- `ResultViewController`
+- `HistoryViewController`
+- Handles:
+  - Navigation between screens
+  - Timer management
+  - Randomization logic
+  - Answer tracking
+  - Results calculation
+  - Data storage and retrieval
 
-**Figma Link:**
-[`https://www.figma.com/design/yzZ3s2oOWU6oHcGa8h3jTN/Personality-Quiz?m=auto&t=ZjhA1Fj9dq1WU120-1`](https://www.figma.com/design/yzZ3s2oOWU6oHcGa8h3jTN/Personality-Quiz?m=auto&t=ZjhA1Fj9dq1WU120-1)
+---
 
-The prototype demonstrates the full user flow:
-   - Quiz selection
-   - Question flow
-   - Results screen
-   - Completed quizzes screen
+## Prototype
+
+A high-fidelity interactive prototype was created in Figma before development to outline the application layout and user flow.
+
+The prototype includes:
+
+- Quiz selection screen
+- Question flow (single, multiple, ranged)
+- Timer interaction
+- Results screen
+- Completed quizzes history screen
+
+**Figma Prototype (Public Link):**  
+```
+https://www.figma.com/design/yzZ3s2oOWU6oHcGa8h3jTN/Personality-Quiz?m=auto&t=oefiTIv2d9qreOpg-1
+```
+
+---
+
+## Data Persistence
+
+Quiz history is stored locally using:
+
+- `UserDefaults`
+- Codable models (if applicable)
+
+Data is saved automatically after each completed quiz and loaded when the app launches.
+
+---
+
+## Timer Functionality
+
+Each question includes a 10-second countdown timer.
+
+- The timer automatically advances to the next question when time expires.
+- If the user selects an answer before the timer ends, the timer resets for the next question.
+- Timeout handling ensures smooth navigation and prevents user interaction after expiration.
+
+---
 
 ## References
-   -  Apple Developer Documentation
-   -  Swift Documentation
-   -  SF Symbols
 
+- Apple Developer Documentation
+- Swift Documentation
+- UIKit Framework Documentation
+- SF Symbols
