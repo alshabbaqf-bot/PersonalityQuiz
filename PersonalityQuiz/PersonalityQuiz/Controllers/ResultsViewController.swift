@@ -52,6 +52,7 @@ class ResultsViewController: UIViewController {
             resultDefinition: finalResult.definition,
             completedAt: Date()
         )
+        
         HistoryStore.add(item)
     }
 

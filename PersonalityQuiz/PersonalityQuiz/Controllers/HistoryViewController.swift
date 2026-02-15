@@ -10,7 +10,7 @@ import UIKit
 class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-
+    
     private var history: [CompletedQuiz] = []
 
     override func viewDidLoad() {
@@ -46,17 +46,32 @@ extension HistoryViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
+//        let item = history[indexPath.row]
+//
+////        cell.textLabel?.text = "\(item.quizTitle)"
+//        quizTitle.text = "\(item.quizTitle)"
+//
+//        let formatter = DateFormatter()
+//        formatter.dateStyle = .medium
+//        formatter.timeStyle = .short
+//
+////        cell.detailTextLabel?.text = "You are \(item.resultEmoji)"
+//        quizResult.text = "You are \(item.resultEmoji)"
+//
+//        return cell
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
+                as? HistoryCell else {
+                    return UITableViewCell()
+                }
+
         let item = history[indexPath.row]
 
-        cell.textLabel?.text = "\(item.quizTitle)"
-
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-
-        cell.detailTextLabel?.text = "You are \(item.resultEmoji)"
+        cell.quizTitleLabel.text = item.quizTitle
+        cell.quizResultLabel.text = "You are \(item.resultEmoji)"
 
         return cell
     }
-}
+    
+}// class end
